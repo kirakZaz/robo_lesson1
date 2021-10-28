@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npx rimraf dist/ && npx tsc",
     "test": "npm jest",
     "test:unit": "jest --config=jest.config.js",
     "lint": "eslint --cache --ext .ts .",
