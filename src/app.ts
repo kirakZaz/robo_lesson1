@@ -34,18 +34,36 @@ interface productsInterface {
     price: number;
 }
 
+//
+// function main(data: productsInterface[]) {
+//     console.time('global time');
+//     const dataArr = data.map((item) => `Name: ${item.name} - price: ${item.price}`);
+//
+//     console.time('time element 50');
+//     console.log('product N:50: ', dataArr[50]);
+//     console.log('------------------');
+//     console.timeEnd('time element 50');
+//     console.timeEnd('global time');
+//     console.log('length of elements: ', dataArr.length);
+//     console.log('------------------');
+// }
+//
+// main(data);
 
-function main(data: productsInterface[]) {
-    console.time('global time');
-    const dataArr = data.map((item) => `Name: ${item.name} - price: ${item.price}`);
 
-    console.time('time element 50');
-    console.log('product N:50: ', dataArr[50]);
-    console.log('------------------');
-    console.timeEnd('time element 50');
-    console.timeEnd('global time');
-    console.log('length of elements: ', dataArr.length);
-    console.log('------------------');
-}
+const interval = setInterval(() => { console.log('(4)'); clearInterval(interval);});
 
-main(data);
+setImmediate(() => console.log('(8)'));
+
+setTimeout(() => console.log('(5)'));
+
+process.nextTick(() => console.log('(2)'));
+
+console.log('(0)');
+
+const myPromise = () => new Promise((resolve) => setTimeout(() => { console.log('(6)'); resolve();}));
+const myPromise2 = () => new Promise((resolve) => { console.log('(1)'); resolve();} );
+
+
+myPromise().then(() => console.log('(7)'));
+myPromise2().then(() => console.log('(3)'));
