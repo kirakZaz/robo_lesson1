@@ -20,28 +20,30 @@ app.listen(port, err => {
     }
     return console.log(`server is listening on ${port}`);
 });
-//
-// function main(data: productsInterface[]) {
-//     console.time('global time');
-//     const dataArr = data.map((item) => `Name: ${item.name} - price: ${item.price}`);
-//
-//     console.time('time element 50');
-//     console.log('product N:50: ', dataArr[50]);
-//     console.log('------------------');
-//     console.timeEnd('time element 50');
-//     console.timeEnd('global time');
-//     console.log('length of elements: ', dataArr.length);
-//     console.log('------------------');
-// }
-//
-// main(data);
-const interval = setInterval(() => { console.log('(4)'); clearInterval(interval); });
-setImmediate(() => console.log('(8)'));
-setTimeout(() => console.log('(5)'));
-process.nextTick(() => console.log('(2)'));
-console.log('(0 )');
-const myPromise = () => new Promise((resolve) => setTimeout(() => { console.log('(6)'); resolve(); }));
-const myPromise2 = () => new Promise((resolve) => { console.log('(1)'); resolve(); });
-myPromise().then(() => console.log('(7)'));
-myPromise2().then(() => console.log('(3)'));
+function main(data) {
+    console.log('Lesson 1');
+    console.time('global time');
+    const dataArr = data.map((item) => `Name: ${item.name} - price: ${item.price}`);
+    console.time('time element 50');
+    console.log('product N:50: ', dataArr[50]);
+    console.log('------------------');
+    console.timeEnd('time element 50');
+    console.timeEnd('global time');
+    console.log('length of elements: ', dataArr.length);
+    console.log('------------------');
+}
+main(data);
+const async = () => {
+    console.log('Lesson 2');
+    const interval = setInterval(() => { console.log('(4)'); clearInterval(interval); });
+    setImmediate(() => console.log('(8)'));
+    setTimeout(() => console.log('(5)'));
+    process.nextTick(() => console.log('(2)'));
+    console.log('(0)');
+    const myPromise = () => new Promise((resolve) => setTimeout(() => { console.log('(6)'); resolve(); }));
+    const myPromise2 = () => new Promise((resolve) => { console.log('(1)'); resolve(); });
+    myPromise().then(() => console.log('(7)'));
+    myPromise2().then(() => console.log('(3)'));
+};
+async();
 //# sourceMappingURL=app.js.map
